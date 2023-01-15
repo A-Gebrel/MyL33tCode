@@ -4,23 +4,16 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        # # if the list is in descending order, no need to do anything
-        # # return 0 because any investment will return a loss.
-        # for i in range(len(prices)-1):
-        #     if prices[i] >= prices[i+1]:
-        #         pass
-        #     else:
-        #         return 0
         mostProfit = 0
-        buy = 0
-        sell = 1
-        while(sell < len(prices)):
-            profit = prices[sell] - prices[buy]
-            if(prices[buy] < prices[sell]):
+        left = 0
+        right = 1
+        while(right < len(prices)):
+            profit = prices[right] - prices[left]
+            if(prices[left] < prices[right]):
                 mostProfit = max(profit, mostProfit)
             else:
-                buy = sell
-            sell += 1
+                left = right
+            right += 1
         return mostProfit
         
             
