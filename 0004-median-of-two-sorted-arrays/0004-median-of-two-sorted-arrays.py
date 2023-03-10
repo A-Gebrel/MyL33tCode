@@ -13,8 +13,6 @@ class Solution(object):
         nums3.sort()
         size = len(nums3)
         if(size % 2 == 0):
-            print(nums3[(size/2)-1])
-            print(nums3[(size/2)])
             median = (nums3[(size/2)-1] + nums3[(size/2)])
             return float(median)/2
         else:
