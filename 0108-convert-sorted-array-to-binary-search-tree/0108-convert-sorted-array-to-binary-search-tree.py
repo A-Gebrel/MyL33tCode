@@ -11,7 +11,8 @@ class Solution(object):
         :rtype: TreeNode
         """
         if len(nums) == 0:
-            return
+            return None
+
         mid = len(nums)//2
         root = TreeNode(nums[mid])
         root.left = self.sortedArrayToBST(nums[:mid])
