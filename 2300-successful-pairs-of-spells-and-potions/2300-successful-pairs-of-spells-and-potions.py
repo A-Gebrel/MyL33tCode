@@ -3,6 +3,14 @@ class Solution:
         potions.sort()
         good = []
         for i in spells:
-            count = len(potions) - bisect.bisect_left(potions, (success + i - 1) // i)
+            count = 0
+            left, right = 0, len(potions) - 1
+            while left <= right:
+                mid = (left + right) // 2
+                if i * potions[mid] < success:
+                    left = mid + 1
+                else:
+                    count = len(potions) - mid
+                    right = mid - 1
             good.append(count)
         return good
