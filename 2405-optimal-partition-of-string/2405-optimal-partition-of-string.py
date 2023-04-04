@@ -1,9 +1,5 @@
-class Solution(object):
-    def partitionString(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+class Solution:
+    def partitionString(self, s: str) -> int:
         curr = ""
         totalcount = 0
         while(len(s) !=0):
