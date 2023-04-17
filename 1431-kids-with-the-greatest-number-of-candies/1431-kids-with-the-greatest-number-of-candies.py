@@ -4,8 +4,9 @@ class Solution:
         # print(largest)
         res = []
         for i in candies:
-            if(i+extraCandies >= largest):
-                res.append(True)
-            else:
-                res.append(False)
+            # if(i+extraCandies >= largest):
+                # res.append(True)
+            # else:
+                # res.append(False)
+            res.append(i+extraCandies >= largest)
         return res
