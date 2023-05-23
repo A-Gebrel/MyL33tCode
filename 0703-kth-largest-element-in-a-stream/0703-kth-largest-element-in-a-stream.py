@@ -2,9 +2,8 @@ class KthLargest:
 
     def __init__(self, k: int, nums: List[int]):
         self.inums = []
+        self.inums.extend(nums)
         self.kth = k
-        for i in nums:
-            self.inums.append(i)
         self.inums.sort()
     def add(self, val: int) -> int:
         self.inums.append(val)
