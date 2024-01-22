@@ -1,7 +1,5 @@
 public class Solution {
     public int[] FindErrorNums(int[] nums) {
-        int duplicate = -1;
-        int missing = -1;
         List<int> firstList = new List<int>();
         firstList.AddRange(nums);
         
@@ -10,7 +8,7 @@ public class Solution {
         {
             if(firstList.FindAll(x => x==i).Count >= 2)
             {
-                duplicate = i;
+                errorNums[0] = i;
                 break;
             }
         }
@@ -19,13 +17,10 @@ public class Solution {
         {
             if(!firstList.Contains(i))
             {
-                missing = i;
+                errorNums[1] = i;
                 break;
             }
         }
-        
-        errorNums[0] = duplicate;
-        errorNums[1] = missing;
         return errorNums;
     }
 }
