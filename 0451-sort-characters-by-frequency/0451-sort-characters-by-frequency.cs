@@ -17,13 +17,13 @@ public class Solution {
                 select entry.Key;
             
 
-            string output = "";
+            StringBuilder output = new StringBuilder("");
             foreach (char c in sortedChars)
             {
                 int frequency = (int)myHash[c];
-                output += new string(c, frequency);
+                output.Append(new string(c, frequency));
             }
-            return output;
+            return output.ToString();
 
         
     }
