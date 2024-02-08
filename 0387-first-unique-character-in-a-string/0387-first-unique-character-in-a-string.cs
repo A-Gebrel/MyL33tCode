@@ -1,51 +1,36 @@
 public class Solution {
     public int FirstUniqChar(string s) {
-            Hashtable myHash = new Hashtable();
-            foreach(char c in s)
-            {
-                if(myHash.Contains(c))
-                {
-                    myHash[c] = (int)myHash[c] +1;
-                }
-                else
-                {
-                    myHash[c] = 1;
-                }
-            }
+        Dictionary<char, int> myDic = new Dictionary<char, int>();
+        foreach(char c in s)
+        {
+            if(!myDic.TryAdd(c, 1))
+                myDic[c] = myDic[c]+1;
+        }
+        foreach(char c in s)
+        {
+            if(myDic[c] == 1)
+                return s.IndexOf(c);
+        }
+        return -1;
         
-            foreach(char c in s)
-            {
-                if((int)myHash[c] == 1)
-                    return s.IndexOf(c);
-            }
-        
-            return -1;
+//         Hashtable myHash = new Hashtable();
+//         foreach(char c in s)
+//         {
+//             if(myHash.Contains(c))
 //             {
-//                 foreach(DictionaryEntry ent in myHash)
-//                 {
-
-//                     if((int)ent.Value == 1)
-//                     {
-//                         return s.IndexOf((char)ent.Key);
-//                     }
-//                 }
+//                 myHash[c] = (int)myHash[c] +1;
 //             }
-//             return -1;
-
-
-        
-//             var sortedChars = from DictionaryEntry entry in myHash
-//                 orderby entry.Value descending
-//                 select entry.Key;
-            
-
-//             StringBuilder output = new StringBuilder("");
-//             foreach (char c in sortedChars)
+//             else
 //             {
-//                 int frequency = (int)myHash[c];
-//                 output.Append(new string(c, frequency));
+//                 myHash[c] = 1;
 //             }
-//             return output.ToString();
-
+//         }
+        
+//         foreach(char c in s)
+//         {
+//             if((int)myHash[c] == 1)
+//                 return s.IndexOf(c);
+//         }
+//         return -1;
     }
 }
